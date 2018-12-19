@@ -1,113 +1,88 @@
 import { bindActionCreators } from "redux";
-import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+import React from "react";
 
-import Button from "./Button";
-import Controls from "./Controls";
-import { delay } from "../../helpers";
-import * as actionCreators from "../../actions";
+import Column from "./components/Column";
+import Container from "./components/Container";
+import PlayClock from "./components/PlayClock";
+import MessageOverlay from "./components/MessageOverlay";
 
-class Container extends Component {
+import * as actionCreators from "./actions/interactions";
+
+class App extends React.Component {
   static propTypes = {
-    score: PropTypes.string.isRequired,
-    hScore: PropTypes.string.isRequired,
     isPlaying: PropTypes.bool.isRequired,
-    inputPause: PropTypes.bool.isRequired,
-    colorScheme: PropTypes.number.isRequired,
-    buttonColors: PropTypes.array.isRequired,
-    playbackSequence: PropTypes.array.isRequired,
-    playerPlaybackSequence: PropTypes.array.isRequired
+    gameBoard: PropTypes.array.isRequired,
+    winningPieces: PropTypes.array.isRequired,
+    currentPlayer: PropTypes.number.isRequired
   };
 
   constructor(props) {
     super(props);
 
     const { dispatch } = props;
+    this.dispatch = dispatch;
 
-    this.endGame = bindActionCreators(actionCreators.endGame, dispatch);
-    this.startGame = bindActionCreators(actionCreators.startGame, dispatch);
-    this.haltInput = bindActionCreators(actionCreators.haltInput, dispatch);
-    this.allowInput = bindActionCreators(actionCreators.allowInput, dispatch);
-    this.buttonPress = bindActionCreators(actionCreators.buttonPress, dispatch);
-    this.changeColorScheme = bindActionCreators(
-      actionCreators.changeColorScheme,
-      dispatch
-    );
-    this.addToPlaybackSequence = bindActionCreators(
-      actionCreators.addToPlaybackSequence,
-      dispatch
-    );
+    this.incTimer = bindActionCreators(actionCreators.incTimer, dispatch);
+    this.addPiece = bindActionCreators(actionCreators.addPiece, dispatch);
+    this.resetGame = bindActionCreators(actionCreators.resetGame, dispatch);
   }
 
-  componentDidUpdate(prevState) {
-    if (
-      this.props.playbackSequence.length !== prevState.playbackSequence.length
-    ) {
-      setTimeout(() => {
-        this.showPlaybackSequence();
-      }, 1000);
-    }
+  componentDidMount() {
+    setInterval(this.incTimer, 1000);
   }
-
-  showPlaybackSequence = () => {
-    const { props } = this;
-    (async () => {
-      this.haltInput();
-
-      for (let i = 0; i < props.playbackSequence.length; await delay(500)) {
-        let currentButton = this.refs[props.playbackSequence[i++]];
-        currentButton.buttonPress();
-      }
-
-      await this.allowInput();
-    })();
-  };
 
   render() {
     const { props } = this;
-    const { colorScheme, isPlaying, inputPause, buttonColors, score } = props;
+    const {
+      isPlaying,
+      currentPlayer,
+      winningPieces,
+      showOverlay,
+      playerOneTime,
+      playerTwoTime
+    } = props;
 
-    const buttonComponents = buttonColors[colorScheme].map(
-      (buttonColor, index) => (
-        <Button
-          key={index}
-          ref={index}
-          index={index}
-          color={buttonColor}
-          isPlaying={isPlaying}
-          inputPause={inputPause}
-          buttonPress={this.buttonPress}
-        />
-      )
-    );
+    const columns = props.gameBoard.map((columnValues, index) => (
+      <Column
+        key={index}
+        columnIndex={index}
+        isPlaying={isPlaying}
+        addPiece={this.addPiece}
+        columnValues={columnValues}
+        currentPlayer={currentPlayer}
+        winningPieces={winningPieces}
+      />
+    ));
 
     return (
       <div className="App">
-        <div className="container">
-          {buttonComponents}
-          <Controls
-            score={score}
-            isPlaying={isPlaying}
-            startGame={this.startGame}
-            changeColorScheme={this.changeColorScheme}
+        {showOverlay && (
+          <MessageOverlay
+            showOverlay={showOverlay}
+            resetGame={this.resetGame}
+            winningPlayer={currentPlayer}
           />
+        )}
+        <div className="playclocks">
+          <PlayClock player={1} time={playerOneTime} />
+          <PlayClock player={2} time={playerTwoTime} />
         </div>
+        <Container Columns={columns} />
       </div>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  score: state.score,
-  hScore: state.hScore,
+  gameBoard: state.gameBoard,
   isPlaying: state.isPlaying,
-  inputPause: state.inputPause,
-  colorScheme: state.colorScheme,
-  buttonColors: state.buttonColors,
-  currentButton: state.currentButton,
-  playbackSequence: state.playbackSequence,
-  playerPlaybackSequence: state.playerPlaybackSequence
+  showOverlay: state.showOverlay,
+  currentPlayer: state.currentPlayer,
+  winningPieces: state.winningPieces,
+  playerOneTime: state.playerOneTime,
+  playerTwoTime: state.playerTwoTime
 });
 
-export default connect(mapStateToProps)(Container);
+export default connect(mapStateToProps)(App);

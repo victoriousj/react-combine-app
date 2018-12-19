@@ -1,5 +1,6 @@
 import * as actionTypes from "../actionTypes";
 
+// Simon Says
 export const endGame = () => ({ type: actionTypes.GAME_END });
 
 export const startGame = () => ({ type: actionTypes.GAME_START });
@@ -20,4 +21,15 @@ export const buttonPress = buttonIndex => ({
 export const changeColorScheme = colorSchemeId => ({
   type: actionTypes.GAME_CHANGE_COLOR_SCHEME,
   colorSchemeId
+});
+
+// Connect4
+export const resetGame = () => ({ type: actionTypes.RESET_GAME });
+
+export const incTimer = () => ({ type: actionTypes.INC_TIMER });
+
+export const addPiece = (rowIndex, columnIndex) => ({
+  type: actionTypes.ADD_PIECE,
+  rowIndex,
+  columnIndex
 });
