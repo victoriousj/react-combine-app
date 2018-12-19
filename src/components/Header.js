@@ -10,8 +10,8 @@ const Header = () => (
     </span>
     <ul className="">
       <li>
-        <NavLink exact to="/connect4">
-          connect4
+        <NavLink exact to="/simonsays">
+          Simon Says
         </NavLink>
       </li>
     </ul>
