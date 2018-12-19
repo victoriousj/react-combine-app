@@ -3,12 +3,14 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import React from "react";
 
-import Column from "./components/Column";
-import Container from "./components/Container";
-import PlayClock from "./components/PlayClock";
-import MessageOverlay from "./components/MessageOverlay";
+import "./Connect4.css";
 
-import * as actionCreators from "./actions/interactions";
+import Column from "./Column";
+import Container from "./Container";
+import PlayClock from "./PlayClock";
+import MessageOverlay from "./MessageOverlay";
+
+import * as actionCreators from "../../actions";
 
 class App extends React.Component {
   static propTypes = {
@@ -34,6 +36,7 @@ class App extends React.Component {
   }
 
   render() {
+    console.log(this);
     const { props } = this;
     const {
       isPlaying,

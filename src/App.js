@@ -2,9 +2,8 @@ import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import Header from "./components/Header";
-import SimonSays from "./components/SimonSays/SimonSays";
-
-import "./App.css";
+import Connect4 from "./components/Connect4";
+import SimonSays from "./components/SimonSays";
 
 class App extends React.Component {
   render() {
@@ -15,6 +14,7 @@ class App extends React.Component {
             <Header />
             <Switch>
               <Route path={"/simonsays"} render={() => <SimonSays />} />
+              <Route path={"/connect4"} render={() => <Connect4 />} />
             </Switch>
           </>
         </BrowserRouter>

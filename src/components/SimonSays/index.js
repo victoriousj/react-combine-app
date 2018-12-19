@@ -3,6 +3,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
+import "./SimonSays.css";
+
 import Button from "./Button";
 import Controls from "./Controls";
 import { delay } from "../../helpers";

@@ -1,7 +1,8 @@
-import * as ControlActionTypes from "../actionTypes";
+import * as actionTypes from "../actionTypes";
 import { sounds, colorSchemes } from "../assets";
 import {
   parseScore,
+  checkGameBoard,
   getNextColorScheme,
   fetchRandomButtonIndex
 } from "../helpers";
@@ -10,17 +11,35 @@ const initialState = {
   score: "000",
   hScore: "000",
   colorScheme: 0,
-  isPlaying: false,
+  isPlaying: true,
   inputPause: false,
   currentButton: null,
   playbackSequence: [],
   playerPlaybackSequence: [],
-  buttonColors: colorSchemes
+  buttonColors: colorSchemes,
+
+  currentPlayer: 1,
+  playerOneTime: 0,
+  playerTwoTime: 0,
+  showOverlay: false,
+  gameBoard: [
+    [0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0]
+  ],
+  winningPieces: []
 };
 
+const getInitialState = () => ({ ...initialState });
+
 export default function Control(state = initialState, action) {
+  console.log(action);
   switch (action.type) {
-    case ControlActionTypes.GAME_END: {
+    case actionTypes.GAME_END: {
       return {
         ...state,
         score: "000",
@@ -31,14 +50,14 @@ export default function Control(state = initialState, action) {
       };
     }
 
-    case ControlActionTypes.GAME_START: {
+    case actionTypes.GAME_START: {
       const playbackSequence = [
         ...state.playbackSequence,
         fetchRandomButtonIndex()
       ];
 
       if (state.isPlaying) {
-        return Control(state, { type: ControlActionTypes.GAME_END });
+        return Control(state, { type: actionTypes.GAME_END });
       }
 
       return {
@@ -48,21 +67,21 @@ export default function Control(state = initialState, action) {
       };
     }
 
-    case ControlActionTypes.ALLOW_INPUT: {
+    case actionTypes.ALLOW_INPUT: {
       return {
         ...state,
         inputPause: false
       };
     }
 
-    case ControlActionTypes.HALT_INPUT: {
+    case actionTypes.HALT_INPUT: {
       return {
         ...state,
         inputPause: true
       };
     }
 
-    case ControlActionTypes.BUTTON_PRESS: {
+    case actionTypes.BUTTON_PRESS: {
       const newPlayerPlaybackSequence = [
         ...state.playerPlaybackSequence,
         action.buttonIndex
@@ -76,7 +95,7 @@ export default function Control(state = initialState, action) {
           soundEffect.volume = 0.07;
           soundEffect.play();
 
-          return Control(state, { type: ControlActionTypes.GAME_END });
+          return Control(state, { type: actionTypes.GAME_END });
         }
       }
 
@@ -95,11 +114,11 @@ export default function Control(state = initialState, action) {
       state = parseScore(state);
 
       return Control(state, {
-        type: ControlActionTypes.ADD_TO_PLAYBACK_SEQUENCE
+        type: actionTypes.ADD_TO_PLAYBACK_SEQUENCE
       });
     }
 
-    case ControlActionTypes.ADD_TO_PLAYBACK_SEQUENCE: {
+    case actionTypes.ADD_TO_PLAYBACK_SEQUENCE: {
       const newPlaybackSequence = [
         ...state.playbackSequence,
         fetchRandomButtonIndex()
@@ -112,11 +131,46 @@ export default function Control(state = initialState, action) {
       };
     }
 
-    case ControlActionTypes.GAME_CHANGE_COLOR_SCHEME: {
+    case actionTypes.GAME_CHANGE_COLOR_SCHEME: {
       return {
         ...state,
         colorScheme: getNextColorScheme(state)
       };
+    }
+
+    case actionTypes.ADD_PIECE: {
+      if (!state.isPlaying) return state;
+
+      const newState = { ...state };
+
+      newState.gameBoard[action.columnIndex][action.rowIndex] =
+        newState.currentPlayer;
+
+      const winningPieces = checkGameBoard(state.gameBoard);
+      if (winningPieces) {
+        newState.winningPieces = winningPieces;
+        newState.showOverlay = true;
+        newState.isPlaying = false;
+      } else {
+        newState.currentPlayer = newState.currentPlayer === 1 ? 2 : 1;
+      }
+
+      return newState;
+    }
+
+    case actionTypes.RESET_GAME: {
+      return getInitialState();
+    }
+
+    case actionTypes.INC_TIMER: {
+      if (!state.isPlaying) return state;
+
+      state =
+        state.currentPlayer === 1
+          ? timePlayerOneTimer(state)
+          : timePlayerTwoTimer(state);
+
+      return state;
     }
 
     default:
@@ -124,74 +178,12 @@ export default function Control(state = initialState, action) {
   }
 }
 
-// const getInitialState = () => ({
-//   isPlaying: true,
-//   currentPlayer: 1,
-//   playerOneTime: 0,
-//   playerTwoTime: 0,
-//   showOverlay: false,
-//   gameBoard: [
-//     [0, 0, 0, 0, 0, 0],
-//     [0, 0, 0, 0, 0, 0],
-//     [0, 0, 0, 0, 0, 0],
-//     [0, 0, 0, 0, 0, 0],
-//     [0, 0, 0, 0, 0, 0],
-//     [0, 0, 0, 0, 0, 0],
-//     [0, 0, 0, 0, 0, 0]
-//   ],
-//   winningPieces: []
-// });
+const timePlayerOneTimer = state => ({
+  ...state,
+  playerOneTime: 1 + state.playerOneTime
+});
 
-// const initialState = getInitialState();
-
-// export default function interactions(state = initialState, action) {
-//   switch (action.type) {
-//     case interactionActionTypes.ADD_PIECE: {
-//       if (!state.isPlaying) return state;
-
-//       const newState = { ...state };
-
-//       newState.gameBoard[action.columnIndex][action.rowIndex] =
-//         newState.currentPlayer;
-
-//       const winningPieces = checkGameBoard(state.gameBoard);
-//       if (winningPieces) {
-//         newState.winningPieces = winningPieces;
-//         newState.showOverlay = true;
-//         newState.isPlaying = false;
-//       } else {
-//         newState.currentPlayer = newState.currentPlayer === 1 ? 2 : 1;
-//       }
-
-//       return newState;
-//     }
-
-//     case interactionActionTypes.RESET_GAME: {
-//       return getInitialState();
-//     }
-
-//     case interactionActionTypes.INC_TIMER: {
-//       if (!state.isPlaying) return state;
-
-//       state =
-//         state.currentPlayer === 1
-//           ? timePlayerOneTimer(state)
-//           : timePlayerTwoTimer(state);
-
-//       return state;
-//     }
-
-//     default:
-//       return state;
-//   }
-// }
-
-// const timePlayerOneTimer = state => ({
-//   ...state,
-//   playerOneTime: 1 + state.playerOneTime
-// });
-
-// const timePlayerTwoTimer = state => ({
-//   ...state,
-//   playerTwoTime: 1 + state.playerTwoTime
-// });
+const timePlayerTwoTimer = state => ({
+  ...state,
+  playerTwoTime: 1 + state.playerTwoTime
+});
