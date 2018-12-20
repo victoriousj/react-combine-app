@@ -18,8 +18,8 @@ export const buttonPress = buttonIndex => ({
   buttonIndex
 });
 
-export const changeColorScheme = colorSchemeId => ({
-  type: actionTypes.GAME_CHANGE_COLOR_SCHEME,
+export const changeTheme = colorSchemeId => ({
+  type: actionTypes.GAME_CHANGE_THEME,
   colorSchemeId
 });
 

@@ -18,7 +18,7 @@ const ControlButtons = props => (
       </CSSTransition>
     </div>
     <div
-      onClick={() => props.changeColorScheme()}
+      onClick={() => props.changeTheme()}
       className={`game-reset ${!props.isPlaying ? "game-light-off" : ""}`}
     />
   </div>
@@ -27,7 +27,7 @@ const ControlButtons = props => (
 ControlButtons.propTypes = {
   isPlaying: PropTypes.bool.isRequired,
   startGame: PropTypes.func.isRequired,
-  changeColorScheme: PropTypes.func.isRequired
+  changeTheme: PropTypes.func.isRequired
 };
 
 export default ControlButtons;

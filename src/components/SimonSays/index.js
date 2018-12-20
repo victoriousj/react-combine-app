@@ -1,6 +1,4 @@
-import { bindActionCreators } from "redux";
 import React, { Component } from "react";
-import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
 import "./SimonSays.css";
@@ -8,7 +6,6 @@ import "./SimonSays.css";
 import Button from "./Button";
 import Controls from "./Controls";
 import { delay } from "../../helpers";
-import * as actionCreators from "../../actions";
 
 class Container extends Component {
   static propTypes = {
@@ -21,26 +18,6 @@ class Container extends Component {
     playbackSequence: PropTypes.array.isRequired,
     playerPlaybackSequence: PropTypes.array.isRequired
   };
-
-  constructor(props) {
-    super(props);
-
-    const { dispatch } = props;
-
-    this.endGame = bindActionCreators(actionCreators.endGame, dispatch);
-    this.startGame = bindActionCreators(actionCreators.startGame, dispatch);
-    this.haltInput = bindActionCreators(actionCreators.haltInput, dispatch);
-    this.allowInput = bindActionCreators(actionCreators.allowInput, dispatch);
-    this.buttonPress = bindActionCreators(actionCreators.buttonPress, dispatch);
-    this.changeColorScheme = bindActionCreators(
-      actionCreators.changeColorScheme,
-      dispatch
-    );
-    this.addToPlaybackSequence = bindActionCreators(
-      actionCreators.addToPlaybackSequence,
-      dispatch
-    );
-  }
 
   componentDidUpdate(prevState) {
     if (
@@ -55,20 +32,29 @@ class Container extends Component {
   showPlaybackSequence = () => {
     const { props } = this;
     (async () => {
-      this.haltInput();
+      props.haltInput();
 
       for (let i = 0; i < props.playbackSequence.length; await delay(500)) {
         let currentButton = this.refs[props.playbackSequence[i++]];
         currentButton.buttonPress();
       }
 
-      await this.allowInput();
+      await props.allowInput();
     })();
   };
 
   render() {
     const { props } = this;
-    const { colorScheme, isPlaying, inputPause, buttonColors, score } = props;
+    const {
+      score,
+      isPlaying,
+      startGame,
+      inputPause,
+      changeTheme,
+      colorScheme,
+      buttonPress,
+      buttonColors
+    } = props;
 
     const buttonComponents = buttonColors[colorScheme].map(
       (buttonColor, index) => (
@@ -79,7 +65,7 @@ class Container extends Component {
           color={buttonColor}
           isPlaying={isPlaying}
           inputPause={inputPause}
-          buttonPress={this.buttonPress}
+          buttonPress={buttonPress}
         />
       )
     );
@@ -91,8 +77,8 @@ class Container extends Component {
           <Controls
             score={score}
             isPlaying={isPlaying}
-            startGame={this.startGame}
-            changeColorScheme={this.changeColorScheme}
+            startGame={startGame}
+            changeTheme={changeTheme}
           />
         </div>
       </div>
@@ -100,16 +86,4 @@ class Container extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  score: state.score,
-  hScore: state.hScore,
-  isPlaying: state.isPlaying,
-  inputPause: state.inputPause,
-  colorScheme: state.colorScheme,
-  buttonColors: state.buttonColors,
-  currentButton: state.currentButton,
-  playbackSequence: state.playbackSequence,
-  playerPlaybackSequence: state.playerPlaybackSequence
-});
-
-export default connect(mapStateToProps)(Container);
+export default Container;

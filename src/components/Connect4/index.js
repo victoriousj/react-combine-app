@@ -1,5 +1,3 @@
-import { bindActionCreators } from "redux";
-import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -10,9 +8,7 @@ import Container from "./Container";
 import PlayClock from "./PlayClock";
 import MessageOverlay from "./MessageOverlay";
 
-import * as actionCreators from "../../actions";
-
-class App extends React.Component {
+class Connect4 extends React.Component {
   static propTypes = {
     isPlaying: PropTypes.bool.isRequired,
     gameBoard: PropTypes.array.isRequired,
@@ -20,26 +16,16 @@ class App extends React.Component {
     currentPlayer: PropTypes.number.isRequired
   };
 
-  constructor(props) {
-    super(props);
-
-    const { dispatch } = props;
-    this.dispatch = dispatch;
-
-    this.incTimer = bindActionCreators(actionCreators.incTimer, dispatch);
-    this.addPiece = bindActionCreators(actionCreators.addPiece, dispatch);
-    this.resetGame = bindActionCreators(actionCreators.resetGame, dispatch);
-  }
-
   componentDidMount() {
-    setInterval(this.incTimer, 1000);
+    setInterval(this.props.incTimer, 1000);
   }
 
   render() {
-    console.log(this);
     const { props } = this;
     const {
+      addPiece,
       isPlaying,
+      resetGame,
       currentPlayer,
       winningPieces,
       showOverlay,
@@ -52,7 +38,7 @@ class App extends React.Component {
         key={index}
         columnIndex={index}
         isPlaying={isPlaying}
-        addPiece={this.addPiece}
+        addPiece={addPiece}
         columnValues={columnValues}
         currentPlayer={currentPlayer}
         winningPieces={winningPieces}
@@ -64,7 +50,7 @@ class App extends React.Component {
         {showOverlay && (
           <MessageOverlay
             showOverlay={showOverlay}
-            resetGame={this.resetGame}
+            resetGame={resetGame}
             winningPlayer={currentPlayer}
           />
         )}
@@ -78,14 +64,4 @@ class App extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({
-  gameBoard: state.gameBoard,
-  isPlaying: state.isPlaying,
-  showOverlay: state.showOverlay,
-  currentPlayer: state.currentPlayer,
-  winningPieces: state.winningPieces,
-  playerOneTime: state.playerOneTime,
-  playerTwoTime: state.playerTwoTime
-});
-
-export default connect(mapStateToProps)(App);
+export default Connect4;

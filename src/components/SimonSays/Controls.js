@@ -16,7 +16,7 @@ const Controls = props => (
       <ControlButtons
         isPlaying={props.isPlaying}
         startGame={props.startGame}
-        changeColorScheme={props.changeColorScheme}
+        changeTheme={props.changeTheme}
       />
     </div>
   </div>
@@ -26,7 +26,7 @@ Controls.protoTypes = {
   score: PropTypes.string.isRequired,
   isPlaying: PropTypes.bool.isRequired,
   startGame: PropTypes.func.isRequired,
-  changeColorScheme: PropTypes.number.isRequired
+  changeTheme: PropTypes.number.isRequired
 };
 
 export default Controls;
