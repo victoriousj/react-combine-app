@@ -17,7 +17,11 @@ class Connect4 extends React.Component {
   };
 
   componentDidMount() {
-    setInterval(this.props.incTimer, 1000);
+    this.timer = setInterval(this.props.incTimer, 1000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timer);
   }
 
   render() {

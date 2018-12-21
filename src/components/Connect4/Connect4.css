@@ -14,7 +14,7 @@
 }
 
 body {
-  background-color: #1565c0 !important;
+  background-color: #1565c0;
 }
 
 .message-overlay {
@@ -99,7 +99,7 @@ body {
   border: 2px solid #1565c0;
 }
 
-.container {
+.connect-container {
   width: 72vh;
   height: 70vh;
   display: flex;
