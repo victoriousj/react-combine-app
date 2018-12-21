@@ -2,17 +2,17 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 
 const Header = () => (
-  <header>
-    <span className="">
+  <header className="navbar">
+    <span className="logo">
       <NavLink exact to="/">
-        <i className=""> &lt; / &gt; </i>
+        <i className="logo" />
       </NavLink>
     </span>
-    <ul className="">
-      <li>
+    <ul className="main-nav">
+      <li className="nav-links">
         <NavLink to="/simonsays">Simon Says</NavLink>
       </li>
-      <li>
+      <li className="nav-links">
         <NavLink to="/connect4">Connect4</NavLink>
       </li>
     </ul>

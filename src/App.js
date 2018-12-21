@@ -3,8 +3,10 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-import Header from "./components/Header";
+import "./App.css";
+
 import * as actions from "./actions";
+import Header from "./components/Header";
 import Connect4 from "./components/Connect4";
 import SimonSays from "./components/SimonSays";
 

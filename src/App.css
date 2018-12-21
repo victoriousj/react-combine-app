@@ -1,0 +1,40 @@
+header {
+  background: #ecf0f1;
+}
+
+header,
+.navbar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.main-nav {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+}
+
+.logo {
+  background-image: url("./assets/images/code.png");
+}
+
+.main-nav a,
+.navbar span {
+  padding: 0.75em 1em;
+}
+
+.main-nav a {
+  font-size: 0.95em;
+  color: #222;
+  text-align: center;
+  text-transform: uppercase;
+  display: block;
+  transition: 0.2s;
+  border: 3px solid transparent;
+}
+.main-nav a:hover,
+.main-nav .active {
+  color: #fff;
+  background: #3498db;
+}
