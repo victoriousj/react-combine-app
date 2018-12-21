@@ -10,7 +10,7 @@ const initialState = {
   score: "000",
   hScore: "000",
   colorScheme: 0,
-  isPlaying: true,
+  isPlaying: false,
   inputPause: false,
   currentButton: null,
   playbackSequence: [],
