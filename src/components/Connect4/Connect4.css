@@ -135,6 +135,10 @@
   font-family: "Lilita One", monospace;
 }
 
+.container-bottom span {
+  cursor: pointer;
+}
+
 .cell-parent {
   position: relative;
 }

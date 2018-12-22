@@ -11,6 +11,7 @@ import MessageOverlay from "./MessageOverlay";
 class Connect4 extends React.Component {
   static propTypes = {
     isPlaying: PropTypes.bool.isRequired,
+    resetGame: PropTypes.func.isRequired,
     gameBoard: PropTypes.array.isRequired,
     winningPieces: PropTypes.array.isRequired,
     currentPlayer: PropTypes.number.isRequired
@@ -63,7 +64,7 @@ class Connect4 extends React.Component {
           <PlayClock player={1} time={playerOneTime} />
           <PlayClock player={2} time={playerTwoTime} />
         </div>
-        <Container Columns={columns} />
+        <Container resetGame={resetGame} Columns={columns} />
       </div>
     );
   }
