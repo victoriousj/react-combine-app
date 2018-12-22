@@ -13,10 +13,6 @@
   -webkit-touch-callout: none;
 }
 
-body {
-  background-color: #1565c0;
-}
-
 .message-overlay {
   position: absolute;
   width: 100%;
@@ -104,7 +100,7 @@ body {
   height: 70vh;
   display: flex;
   flex-wrap: wrap;
-  margin: 2vh auto;
+  margin: 4vh auto;
   align-items: center;
   flex-direction: row;
   justify-content: center;
@@ -196,7 +192,7 @@ body {
   display: hidden;
   position: absolute;
   transition: opacity 600ms;
-  background-color: #3498db;
+  background-color: #7f8c8d;
 }
 .column:hover::after {
   opacity: 1;
@@ -211,7 +207,7 @@ body {
 }
 .column:hover .cell.black.glow::before {
   opacity: 1;
-  background-color: #757575;
+  background-color: #76cad9;
 }
 
 .player-piece {
@@ -228,7 +224,7 @@ body {
   background-color: #f44336;
 }
 .player-piece.black {
-  background-color: #34495e;
+  background-color: #3498db;
 }
 .player-piece.winning-piece {
   background-color: white;
@@ -237,7 +233,7 @@ body {
 .playclocks {
   width: 50%;
   display: flex;
-  margin: 0 auto;
+  margin: 3vh auto;
   text-align: center;
   justify-content: space-around;
 }

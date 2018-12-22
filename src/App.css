@@ -1,8 +1,16 @@
-header {
-  background: #ecf0f1;
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
 }
 
-header,
+header {
+  background: #343a40;
+  height: 5vh;
+}
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -21,20 +29,22 @@ header,
 
 .main-nav a,
 .navbar span {
-  padding: 0.75em 1em;
+  padding: 0.75vh 1vh;
 }
 
 .main-nav a {
-  font-size: 0.95em;
-  color: #222;
+  font-size: 1.5vh;
+  color: rgb(255, 255, 255, 0.5);
   text-align: center;
   text-transform: uppercase;
   display: block;
   transition: 0.2s;
   border: 3px solid transparent;
+  border-radius: 0.25vh;
+  margin: 0.5vh 0.5vh;
 }
 .main-nav a:hover,
 .main-nav .active {
   color: #fff;
-  background: #3498db;
+  background: #28a745;
 }

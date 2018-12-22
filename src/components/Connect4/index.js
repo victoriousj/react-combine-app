@@ -18,7 +18,7 @@ class Connect4 extends React.Component {
 
   componentDidMount() {
     this.timer = setInterval(this.props.incTimer, 1000);
-    document.body.style.backgroundColor = "#1565c0";
+    document.body.style.backgroundColor = "#34495e";
   }
 
   componentWillUnmount() {
@@ -51,7 +51,7 @@ class Connect4 extends React.Component {
     ));
 
     return (
-      <div className="App">
+      <div>
         {showOverlay && (
           <MessageOverlay
             showOverlay={showOverlay}
