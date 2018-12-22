@@ -6,6 +6,7 @@ const initialState = {
   currentPlayer: 1,
   playerOneTime: 0,
   playerTwoTime: 0,
+  winningPieces: [],
   showOverlay: false,
   gameBoard: [
     [0, 0, 0, 0, 0, 0],
@@ -15,11 +16,8 @@ const initialState = {
     [0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0]
-  ],
-  winningPieces: []
+  ]
 };
-
-const getInitialState = () => ({ initialState });
 
 export default function connect4(state = initialState, action) {
   switch (action.type) {
@@ -44,7 +42,23 @@ export default function connect4(state = initialState, action) {
     }
 
     case actionTypes.RESET_GAME: {
-      return getInitialState();
+      return {
+        isPlaying: true,
+        currentPlayer: 1,
+        playerOneTime: 0,
+        playerTwoTime: 0,
+        winningPieces: [],
+        showOverlay: false,
+        gameBoard: [
+          [0, 0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0]
+        ]
+      };
     }
 
     case actionTypes.INC_TIMER: {
