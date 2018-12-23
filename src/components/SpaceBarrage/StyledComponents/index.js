@@ -2,12 +2,9 @@ import styled, { keyframes } from "styled-components";
 
 import { randomUpTo } from "../../../helpers";
 
-import enemy1 from "../../../assets/images/enemy1.svg";
-import enemy2 from "../../../assets/images/enemy2.svg";
-import enemy3 from "../../../assets/images/enemy3.svg";
-import rocket from "../../../assets/images/rocket.svg";
-import fire from "../../../assets/images/fire.svg";
+import { spaceBarrageSVGs } from "../../../assets";
 
+const { enemy1, enemy2, enemy3, rocket, fire } = spaceBarrageSVGs;
 const enemies = [enemy1, enemy2, enemy3];
 
 export const AppSC = styled.div`

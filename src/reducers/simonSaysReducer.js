@@ -1,10 +1,6 @@
 import * as actionTypes from "../actionTypes";
 import { sounds, colorSchemes } from "../assets";
-import {
-  parseScore,
-  getNextColorScheme,
-  fetchRandomButtonIndex
-} from "../helpers";
+import { simonSaysHelpers } from "../helpers";
 
 const initialState = {
   score: "000",
@@ -34,7 +30,7 @@ export default function Control(state = initialState, action) {
     case actionTypes.GAME_START: {
       const playbackSequence = [
         ...state.playbackSequence,
-        fetchRandomButtonIndex()
+        simonSaysHelpers.fetchRandomButtonIndex()
       ];
 
       if (state.isPlaying) {
@@ -92,7 +88,7 @@ export default function Control(state = initialState, action) {
       soundEffect.src = sounds[5];
       setTimeout(() => soundEffect.play(), 200);
 
-      state = parseScore(state);
+      state = simonSaysHelpers.parseScore(state);
 
       return Control(state, {
         type: actionTypes.ADD_TO_PLAYBACK_SEQUENCE
@@ -102,7 +98,7 @@ export default function Control(state = initialState, action) {
     case actionTypes.ADD_TO_PLAYBACK_SEQUENCE: {
       const newPlaybackSequence = [
         ...state.playbackSequence,
-        fetchRandomButtonIndex()
+        simonSaysHelpers.fetchRandomButtonIndex()
       ];
 
       return {
@@ -115,7 +111,7 @@ export default function Control(state = initialState, action) {
     case actionTypes.GAME_CHANGE_THEME: {
       return {
         ...state,
-        colorScheme: getNextColorScheme(state)
+        colorScheme: simonSaysHelpers.getNextColorScheme(state)
       };
     }
 

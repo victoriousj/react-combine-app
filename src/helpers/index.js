@@ -1,5 +1,7 @@
 import React from "react";
 
+import simonSays from "./simonSaysHelpers";
+
 import {
   SmStarSC,
   MdStarSC,
@@ -7,31 +9,10 @@ import {
 } from "../components/SpaceBarrage/StyledComponents";
 import { KEYS } from "../resources";
 
-import enemy1 from "../assets/images/enemy1.svg";
-import enemy2 from "../assets/images/enemy2.svg";
-import enemy3 from "../assets/images/enemy3.svg";
+import { spaceBarrageSVGs } from "../assets";
 import Enemy from "../components/SpaceBarrage/Enemy";
 
-// Simon Says
-export const fetchRandomButtonIndex = () => Math.floor(Math.random() * 4);
-
-export const delay = x => new Promise(r => setTimeout(r, x));
-
-export const getNextColorScheme = state =>
-  state.buttonColors.length !== ++state.colorScheme ? state.colorScheme : 0;
-
-export const parseScore = state => {
-  let s = parseInt(state.score);
-  let hs = parseInt(state.highScore);
-  const parsedScore = ++s < 10 ? `00${s}` : s < 99 ? `0${s}` : s;
-  const parsedHighScore = s > hs ? parsedScore : state.highScore;
-
-  return {
-    ...state,
-    score: parsedScore,
-    highScore: parsedHighScore
-  };
-};
+export const simonSaysHelpers = simonSays();
 
 // Connect4
 export const checkGameBoard = gameBoard => {
@@ -148,6 +129,7 @@ export const checkGameBoard = gameBoard => {
 const areIdentical = arr => arr.every(v => v === arr[0]);
 
 // Space Barage
+const { enemy1, enemy2, enemy3 } = spaceBarrageSVGs;
 const enemiesSVGS = [enemy1, enemy2, enemy3];
 const maxX = 1025;
 const minX = -40;

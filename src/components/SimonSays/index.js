@@ -5,7 +5,7 @@ import "./SimonSays.css";
 
 import Button from "./Button";
 import Controls from "./Controls";
-import { delay } from "../../helpers";
+import { simonSaysHelpers } from "../../helpers";
 
 class Container extends Component {
   static propTypes = {
@@ -38,7 +38,11 @@ class Container extends Component {
     (async () => {
       props.haltInput();
 
-      for (let i = 0; i < props.playbackSequence.length; await delay(500)) {
+      for (
+        let i = 0;
+        i < props.playbackSequence.length;
+        await simonSaysHelpers.delay(500)
+      ) {
         let currentButton = this.refs[props.playbackSequence[i++]];
         currentButton.buttonPress();
       }
