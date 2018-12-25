@@ -1,15 +1,15 @@
-import React from "react";
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import React from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-import "./App.css";
+import './App.css';
 
-import * as actions from "./actions";
-import Header from "./components/Header";
-import Connect4 from "./components/Connect4";
-import SimonSays from "./components/SimonSays";
-import SpaceBarrage from "./components/SpaceBarrage";
+import * as actions from './actions';
+import Header from './components/Header';
+import Connect4 from './components/Connect4';
+import SimonSays from './components/SimonSays';
+import SpaceBarrage from './components/SpaceBarrage';
 
 class App extends React.Component {
   constructor(props) {
@@ -38,7 +38,7 @@ class App extends React.Component {
             <Header />
             <Switch>
               <Route
-                path={"/simonsays"}
+                path={'/simonsays'}
                 render={() => (
                   <SimonSays
                     {...simonSays}
@@ -51,7 +51,7 @@ class App extends React.Component {
                 )}
               />
               <Route
-                path={"/connect4"}
+                path={'/connect4'}
                 render={() => (
                   <Connect4
                     {...connect4}
@@ -61,7 +61,7 @@ class App extends React.Component {
                   />
                 )}
               />
-              <Route path={"/spacebarrage"} render={() => <SpaceBarrage />} />
+              <Route path={'/spacebarrage'} render={() => <SpaceBarrage />} />
             </Switch>
           </>
         </BrowserRouter>
@@ -73,7 +73,7 @@ const mapStateToProps = state => {
   const { connect4, simonSays } = state;
   return {
     connect4,
-    simonSays
+    simonSays,
   };
 };
 

@@ -1,12 +1,12 @@
-import PropTypes from "prop-types";
-import React from "react";
+import PropTypes from 'prop-types';
+import React from 'react';
 
-import "./Connect4.css";
+import './Connect4.css';
 
-import Column from "./Column";
-import Container from "./Container";
-import PlayClock from "./PlayClock";
-import MessageOverlay from "./MessageOverlay";
+import Column from './Column';
+import Container from './Container';
+import PlayClock from './PlayClock';
+import MessageOverlay from './MessageOverlay';
 
 class Connect4 extends React.Component {
   static propTypes = {
@@ -14,7 +14,7 @@ class Connect4 extends React.Component {
     resetGame: PropTypes.func.isRequired,
     gameBoard: PropTypes.array.isRequired,
     winningPieces: PropTypes.array.isRequired,
-    currentPlayer: PropTypes.number.isRequired
+    currentPlayer: PropTypes.number.isRequired,
   };
 
   componentDidMount() {
@@ -35,7 +35,7 @@ class Connect4 extends React.Component {
       winningPieces,
       showOverlay,
       playerOneTime,
-      playerTwoTime
+      playerTwoTime,
     } = props;
 
     const columns = props.gameBoard.map((columnValues, index) => (
@@ -53,11 +53,7 @@ class Connect4 extends React.Component {
     return (
       <div>
         {showOverlay && (
-          <MessageOverlay
-            showOverlay={showOverlay}
-            resetGame={resetGame}
-            winningPlayer={currentPlayer}
-          />
+          <MessageOverlay showOverlay={showOverlay} resetGame={resetGame} winningPlayer={currentPlayer} />
         )}
         <div className="playclocks">
           <PlayClock player={1} time={playerOneTime} />

@@ -1,8 +1,7 @@
 export default () => ({
   delay: x => new Promise(r => setTimeout(r, x)),
 
-  getNextColorScheme: state =>
-    state.buttonColors.length !== ++state.colorScheme ? state.colorScheme : 0,
+  getNextColorScheme: state => (state.buttonColors.length !== ++state.colorScheme ? state.colorScheme : 0),
 
   parseScore: state => {
     let s = parseInt(state.score);
@@ -13,7 +12,7 @@ export default () => ({
     return {
       ...state,
       score: parsedScore,
-      highScore: parsedHighScore
+      highScore: parsedHighScore,
     };
-  }
+  },
 });

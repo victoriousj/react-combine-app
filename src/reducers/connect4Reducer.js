@@ -1,5 +1,5 @@
-import * as actionTypes from "../actionTypes";
-import { connect4Helpers } from "../helpers";
+import * as actionTypes from '../actionTypes';
+import { connect4Helpers } from '../helpers';
 
 const initialState = {
   isPlaying: true,
@@ -15,8 +15,8 @@ const initialState = {
     [0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0]
-  ]
+    [0, 0, 0, 0, 0, 0],
+  ],
 };
 
 export default function connect4(state = initialState, action) {
@@ -26,8 +26,7 @@ export default function connect4(state = initialState, action) {
 
       const newState = { ...state };
 
-      newState.gameBoard[action.columnIndex][action.rowIndex] =
-        newState.currentPlayer;
+      newState.gameBoard[action.columnIndex][action.rowIndex] = newState.currentPlayer;
 
       const winningPieces = connect4Helpers.checkGameBoard(state.gameBoard);
       if (winningPieces) {
@@ -56,18 +55,15 @@ export default function connect4(state = initialState, action) {
           [0, 0, 0, 0, 0, 0],
           [0, 0, 0, 0, 0, 0],
           [0, 0, 0, 0, 0, 0],
-          [0, 0, 0, 0, 0, 0]
-        ]
+          [0, 0, 0, 0, 0, 0],
+        ],
       };
     }
 
     case actionTypes.INC_TIMER: {
       if (!state.isPlaying) return state;
 
-      state =
-        state.currentPlayer === 1
-          ? timePlayerOneTimer(state)
-          : timePlayerTwoTimer(state);
+      state = state.currentPlayer === 1 ? timePlayerOneTimer(state) : timePlayerTwoTimer(state);
 
       return state;
     }
@@ -80,10 +76,10 @@ export default function connect4(state = initialState, action) {
 
 const timePlayerOneTimer = state => ({
   ...state,
-  playerOneTime: 1 + state.playerOneTime
+  playerOneTime: 1 + state.playerOneTime,
 });
 
 const timePlayerTwoTimer = state => ({
   ...state,
-  playerTwoTime: 1 + state.playerTwoTime
+  playerTwoTime: 1 + state.playerTwoTime,
 });

@@ -1,8 +1,8 @@
-import styled, { keyframes } from "styled-components";
+import styled, { keyframes } from 'styled-components';
 
-import { helpers } from "../../../helpers";
+import { helpers } from '../../../helpers';
 
-import { spaceBarrageSVGs } from "../../../assets";
+import { spaceBarrageSVGs } from '../../../assets';
 
 const { enemy1, enemy2, enemy3, rocket, fire } = spaceBarrageSVGs;
 const enemies = [enemy1, enemy2, enemy3];
@@ -102,8 +102,7 @@ const StarSC = styled.div`
   position: absolute;
   background-color: Cyan;
   left: ${props => props.x}px;
-  animation: ${() => moveY} ${props => props.sp}s linear
-    ${props => `${props.delay}ms`} infinite normal;
+  animation: ${() => moveY} ${props => props.sp}s linear ${props => `${props.delay}ms`} infinite normal;
 `;
 
 export const SmStarSC = styled(StarSC)`

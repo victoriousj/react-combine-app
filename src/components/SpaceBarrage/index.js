@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react';
 
-import Screen from "./Screen";
+import Screen from './Screen';
 
-import { Provider } from "../../context";
-import { AppSC } from "./StyledComponents";
-import { spaceBarrageHelpers } from "../../helpers";
+import { Provider } from '../../context';
+import { AppSC } from './StyledComponents';
+import { spaceBarrageHelpers } from '../../helpers';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -14,8 +14,8 @@ export default class App extends React.Component {
 
   componentDidMount() {
     this.isPlaying = setInterval(this.tick, 50);
-    this.enemies = document.querySelectorAll(".Enemy");
-    window.addEventListener("keydown", this.handleKeys);
+    this.enemies = document.querySelectorAll('.Enemy');
+    window.addEventListener('keydown', this.handleKeys);
   }
 
   componentDidUpdate(a, { isShipHit }) {
@@ -24,8 +24,7 @@ export default class App extends React.Component {
 
   tick = () => this.setState(() => spaceBarrageHelpers.tick(this));
 
-  handleKeys = e =>
-    this.setState(() => spaceBarrageHelpers.handleKeys(this.state, e));
+  handleKeys = e => this.setState(() => spaceBarrageHelpers.handleKeys(this.state, e));
 
   render() {
     return (

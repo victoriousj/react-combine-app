@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react';
 
-import { ContainerSC } from "./StyledComponents";
-import { spaceBarrageHelpers } from "../../helpers";
+import { ContainerSC } from './StyledComponents';
+import { spaceBarrageHelpers } from '../../helpers';
 
-import Ship from "./Ship";
-import Score from "./Score";
-import Guide from "./Guide";
+import Ship from './Ship';
+import Score from './Score';
+import Guide from './Guide';
 
 export default class Container extends React.Component {
   render() {

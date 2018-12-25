@@ -10,7 +10,7 @@ const PlayClock = props => (
 
 PlayClock.propTypes = {
   player: PropTypes.number.isRequired,
-  time: PropTypes.number.isRequired
+  time: PropTypes.number.isRequired,
 };
 
 export default PlayClock;

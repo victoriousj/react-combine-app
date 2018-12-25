@@ -18,17 +18,12 @@ const Cell = props => {
     ${winningPiece ? 'winning-piece' : ''}
   `;
 
-  const playerPiece =
-    cellValue !== 0 ? <div className={playerPieceStyle} /> : null;
+  const playerPiece = cellValue !== 0 ? <div className={playerPieceStyle} /> : null;
 
   return (
     <div className="cell-parent">
       <div className={cellStyle} />
-      <ReactCSSTransitionGroup
-        transitionName="slide"
-        transitionEnterTimeout={500}
-        transitionLeaveTimeout={300}
-      >
+      <ReactCSSTransitionGroup transitionName="slide" transitionEnterTimeout={500} transitionLeaveTimeout={300}>
         {playerPiece}
       </ReactCSSTransitionGroup>
     </div>
@@ -39,7 +34,7 @@ Cell.propTypes = {
   cellValue: PropTypes.number.isRequired,
   winningPiece: PropTypes.bool.isRequired,
   currentPlayer: PropTypes.number.isRequired,
-  isFirstFreeCell: PropTypes.bool.isRequired
+  isFirstFreeCell: PropTypes.bool.isRequired,
 };
 
 export default Cell;

@@ -20,11 +20,7 @@ const MessageOverlay = props => {
 
   return (
     <div className={`message-overlay`}>
-      <ReactCSSTransitionGroup
-        transitionName="side-slide"
-        transitionEnterTimeout={500}
-        transitionLeaveTimeout={200}
-      >
+      <ReactCSSTransitionGroup transitionName="side-slide" transitionEnterTimeout={500} transitionLeaveTimeout={200}>
         {overlay}
       </ReactCSSTransitionGroup>
     </div>
@@ -33,7 +29,7 @@ const MessageOverlay = props => {
 
 MessageOverlay.propTypes = {
   winningPlayer: PropTypes.number.isRequired,
-  resetGame: PropTypes.func.isRequired
+  resetGame: PropTypes.func.isRequired,
 };
 
 export default MessageOverlay;

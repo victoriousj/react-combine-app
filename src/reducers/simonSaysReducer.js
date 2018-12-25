@@ -1,17 +1,17 @@
-import * as actionTypes from "../actionTypes";
-import { sounds, colorSchemes } from "../assets";
-import { simonSaysHelpers, helpers } from "../helpers";
+import * as actionTypes from '../actionTypes';
+import { sounds, colorSchemes } from '../assets';
+import { simonSaysHelpers, helpers } from '../helpers';
 
 const initialState = {
-  score: "000",
-  hScore: "000",
+  score: '000',
+  hScore: '000',
   colorScheme: 0,
   isPlaying: false,
   inputPause: false,
   currentButton: null,
   playbackSequence: [],
   playerPlaybackSequence: [],
-  buttonColors: colorSchemes
+  buttonColors: colorSchemes,
 };
 
 export default function Control(state = initialState, action) {
@@ -19,19 +19,16 @@ export default function Control(state = initialState, action) {
     case actionTypes.GAME_END: {
       return {
         ...state,
-        score: "000",
+        score: '000',
         isPlaying: false,
         currentButton: null,
         playbackSequence: [],
-        playerPlaybackSequence: []
+        playerPlaybackSequence: [],
       };
     }
 
     case actionTypes.GAME_START: {
-      const playbackSequence = [
-        ...state.playbackSequence,
-        helpers.randomUpTo(4)
-      ];
+      const playbackSequence = [...state.playbackSequence, helpers.randomUpTo(4)];
 
       if (state.isPlaying) {
         return Control(state, { type: actionTypes.GAME_END });
@@ -40,29 +37,26 @@ export default function Control(state = initialState, action) {
       return {
         ...state,
         isPlaying: true,
-        playbackSequence
+        playbackSequence,
       };
     }
 
     case actionTypes.ALLOW_INPUT: {
       return {
         ...state,
-        inputPause: false
+        inputPause: false,
       };
     }
 
     case actionTypes.HALT_INPUT: {
       return {
         ...state,
-        inputPause: true
+        inputPause: true,
       };
     }
 
     case actionTypes.BUTTON_PRESS: {
-      const newPlayerPlaybackSequence = [
-        ...state.playerPlaybackSequence,
-        action.buttonIndex
-      ];
+      const newPlayerPlaybackSequence = [...state.playerPlaybackSequence, action.buttonIndex];
 
       // Start at the end of the array and work back
       for (let i = newPlayerPlaybackSequence.length; i--; ) {
@@ -79,7 +73,7 @@ export default function Control(state = initialState, action) {
       if (state.playbackSequence.length !== newPlayerPlaybackSequence.length) {
         return {
           ...state,
-          playerPlaybackSequence: newPlayerPlaybackSequence
+          playerPlaybackSequence: newPlayerPlaybackSequence,
         };
       }
 
@@ -91,27 +85,24 @@ export default function Control(state = initialState, action) {
       state = simonSaysHelpers.parseScore(state);
 
       return Control(state, {
-        type: actionTypes.ADD_TO_PLAYBACK_SEQUENCE
+        type: actionTypes.ADD_TO_PLAYBACK_SEQUENCE,
       });
     }
 
     case actionTypes.ADD_TO_PLAYBACK_SEQUENCE: {
-      const newPlaybackSequence = [
-        ...state.playbackSequence,
-        helpers.randomUpTo(4)
-      ];
+      const newPlaybackSequence = [...state.playbackSequence, helpers.randomUpTo(4)];
 
       return {
         ...state,
         playerPlaybackSequence: [],
-        playbackSequence: newPlaybackSequence
+        playbackSequence: newPlaybackSequence,
       };
     }
 
     case actionTypes.GAME_CHANGE_THEME: {
       return {
         ...state,
-        colorScheme: simonSaysHelpers.getNextColorScheme(state)
+        colorScheme: simonSaysHelpers.getNextColorScheme(state),
       };
     }
 

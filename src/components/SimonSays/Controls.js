@@ -1,8 +1,8 @@
-import PropTypes from "prop-types";
-import React from "react";
+import PropTypes from 'prop-types';
+import React from 'react';
 
-import Score from "./Score";
-import ControlButtons from "./ControlButtons";
+import Score from './Score';
+import ControlButtons from './ControlButtons';
 
 const Controls = props => (
   <div className="controls">
@@ -13,11 +13,7 @@ const Controls = props => (
 
     <div className="game-controls">
       <Score score={props.score} isPlaying={props.isPlaying} />
-      <ControlButtons
-        isPlaying={props.isPlaying}
-        startGame={props.startGame}
-        changeTheme={props.changeTheme}
-      />
+      <ControlButtons isPlaying={props.isPlaying} startGame={props.startGame} changeTheme={props.changeTheme} />
     </div>
   </div>
 );
@@ -26,7 +22,7 @@ Controls.protoTypes = {
   score: PropTypes.string.isRequired,
   isPlaying: PropTypes.bool.isRequired,
   startGame: PropTypes.func.isRequired,
-  changeTheme: PropTypes.number.isRequired
+  changeTheme: PropTypes.number.isRequired,
 };
 
 export default Controls;

@@ -1,15 +1,11 @@
-import React from "react";
+import React from 'react';
 
-import {
-  SmStarSC,
-  MdStarSC,
-  LgStarSC
-} from "../components/SpaceBarrage/StyledComponents";
-import { KEYS } from "../resources";
+import { SmStarSC, MdStarSC, LgStarSC } from '../components/SpaceBarrage/StyledComponents';
+import { KEYS } from '../resources';
 
-import { spaceBarrageSVGs } from "../assets";
-import Enemy from "../components/SpaceBarrage/Enemy";
-import { helpers } from "./index";
+import { spaceBarrageSVGs } from '../assets';
+import Enemy from '../components/SpaceBarrage/Enemy';
+import { helpers } from './index';
 
 // Space Barage
 const { enemy1, enemy2, enemy3 } = spaceBarrageSVGs;
@@ -34,11 +30,9 @@ export default () => ({
     const { rVelocity, lVelocity, shipX } = state;
     const key = e.keyCode;
 
-    if (key === KEYS.RIGHT || key === KEYS.D)
-      state.rVelocity = rVelocity < 20 ? rVelocity + 2 : 20;
+    if (key === KEYS.RIGHT || key === KEYS.D) state.rVelocity = rVelocity < 20 ? rVelocity + 2 : 20;
 
-    if (key === KEYS.LEFT || key === KEYS.A)
-      state.lVelocity = lVelocity > -20 ? lVelocity - 2 : -20;
+    if (key === KEYS.LEFT || key === KEYS.A) state.lVelocity = lVelocity > -20 ? lVelocity - 2 : -20;
 
     state.shipX = shipX + state.lVelocity + state.rVelocity;
 
@@ -58,9 +52,9 @@ export default () => ({
     const stars = [];
     for (let i = 0; i < n; ++i) {
       stars.push(
-        <SmStarSC key={"a" + i} x={rX()} sp={12} delay={rDelay()} />,
-        <MdStarSC key={"b" + i} x={rX()} sp={8} delay={rDelay()} />,
-        <LgStarSC key={"c" + i} x={rX()} sp={6} delay={rDelay()} />
+        <SmStarSC key={'a' + i} x={rX()} sp={12} delay={rDelay()} />,
+        <MdStarSC key={'b' + i} x={rX()} sp={8} delay={rDelay()} />,
+        <LgStarSC key={'c' + i} x={rX()} sp={6} delay={rDelay()} />
       );
     }
 
@@ -76,32 +70,32 @@ export default () => ({
     shipX: 490,
     rVelocity: 0,
     lVelocity: 0,
-    isShipHit: false
-  })
+    isShipHit: false,
+  }),
 });
 
 // Randomly re-creates and places an enemy at the top
 const resetEnemy = enemy => {
-  enemy.style.webkitAnimation = "none";
-  enemy.style.animation = "none";
+  enemy.style.webkitAnimation = 'none';
+  enemy.style.animation = 'none';
   enemy.style.animationDuration = `0s`;
 
   // There is a slight delay so that the element has time
   // to fully reset to the CSS Styled sheets animation
   // before overriding them here
   setTimeout(function() {
-    enemy.style.animation = "";
-    enemy.style.webkitAnimation = "";
+    enemy.style.animation = '';
+    enemy.style.webkitAnimation = '';
     enemy.style.left = `${helpers.randomUpTo(11) * 100}px`;
     enemy.style.background = `url(${enemiesSVGS[helpers.randomUpTo(3)]})`;
     enemy.style.animationDuration = `3s`;
-    enemy.style.backgroundSize = "cover";
+    enemy.style.backgroundSize = 'cover';
   }, 10);
 };
 
 // Update enemies and conduct hit-detection on them and the ship
 const updateEnemies = (enemies, state) => {
-  const shipX = document.querySelector(".Ship").getBoundingClientRect().x;
+  const shipX = document.querySelector('.Ship').getBoundingClientRect().x;
 
   enemies.forEach(enemy => {
     const enemyDim = enemy.getBoundingClientRect();

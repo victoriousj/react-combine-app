@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
-import { sounds } from "../../assets/";
+import { sounds } from '../../assets/';
 
 export default class Button extends Component {
   static propTypes = {
@@ -9,7 +9,7 @@ export default class Button extends Component {
     color: PropTypes.string.isRequired,
     isPlaying: PropTypes.bool.isRequired,
     inputPause: PropTypes.bool.isRequired,
-    buttonPress: PropTypes.func.isRequired
+    buttonPress: PropTypes.func.isRequired,
   };
 
   constructor(props) {
@@ -41,15 +41,11 @@ export default class Button extends Component {
     const { color, inputPause } = props;
     const { show } = state;
 
-    const buttonStyle = `button ${show && !inputPause ? "shrink" : ""}`;
-    const overlayStyle = `overlay ${show ? "on" : ""}`;
+    const buttonStyle = `button ${show && !inputPause ? 'shrink' : ''}`;
+    const overlayStyle = `overlay ${show ? 'on' : ''}`;
 
     return (
-      <div
-        className={buttonStyle}
-        onClick={this.registerButtonPress}
-        style={{ backgroundColor: color }}
-      >
+      <div className={buttonStyle} onClick={this.registerButtonPress} style={{ backgroundColor: color }}>
         <div className={overlayStyle} />
       </div>
     );

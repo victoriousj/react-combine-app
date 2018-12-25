@@ -1,5 +1,5 @@
-import PropTypes from "prop-types";
-import React from "react";
+import PropTypes from 'prop-types';
+import React from 'react';
 
 const Container = props => (
   <div className="connect-container">
@@ -13,7 +13,7 @@ const Container = props => (
 
 Container.propTypes = {
   Columns: PropTypes.array.isRequired,
-  resetGame: PropTypes.func.isRequired
+  resetGame: PropTypes.func.isRequired,
 };
 
 export default Container;
