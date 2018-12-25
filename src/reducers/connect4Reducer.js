@@ -1,5 +1,5 @@
 import * as actionTypes from "../actionTypes";
-import { checkGameBoard } from "../helpers";
+import { connect4Helpers } from "../helpers";
 
 const initialState = {
   isPlaying: true,
@@ -29,7 +29,7 @@ export default function connect4(state = initialState, action) {
       newState.gameBoard[action.columnIndex][action.rowIndex] =
         newState.currentPlayer;
 
-      const winningPieces = checkGameBoard(state.gameBoard);
+      const winningPieces = connect4Helpers.checkGameBoard(state.gameBoard);
       if (winningPieces) {
         newState.winningPieces = winningPieces;
         newState.showOverlay = true;

@@ -1,6 +1,6 @@
 import * as actionTypes from "../actionTypes";
 import { sounds, colorSchemes } from "../assets";
-import { simonSaysHelpers } from "../helpers";
+import { simonSaysHelpers, helpers } from "../helpers";
 
 const initialState = {
   score: "000",
@@ -30,7 +30,7 @@ export default function Control(state = initialState, action) {
     case actionTypes.GAME_START: {
       const playbackSequence = [
         ...state.playbackSequence,
-        simonSaysHelpers.fetchRandomButtonIndex()
+        helpers.randomUpTo(4)
       ];
 
       if (state.isPlaying) {
@@ -98,7 +98,7 @@ export default function Control(state = initialState, action) {
     case actionTypes.ADD_TO_PLAYBACK_SEQUENCE: {
       const newPlaybackSequence = [
         ...state.playbackSequence,
-        simonSaysHelpers.fetchRandomButtonIndex()
+        helpers.randomUpTo(4)
       ];
 
       return {

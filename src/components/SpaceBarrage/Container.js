@@ -1,7 +1,7 @@
 import React from "react";
 
 import { ContainerSC } from "./StyledComponents";
-import { addStars, addEnemies } from "../../helpers";
+import { spaceBarrageHelpers } from "../../helpers";
 
 import Ship from "./Ship";
 import Score from "./Score";
@@ -9,8 +9,8 @@ import Guide from "./Guide";
 
 export default class Container extends React.Component {
   render() {
-    const stars = addStars(10);
-    const enemies = addEnemies(15);
+    const stars = spaceBarrageHelpers.addStars(10);
+    const enemies = spaceBarrageHelpers.addEnemies(15);
 
     return (
       <ContainerSC>

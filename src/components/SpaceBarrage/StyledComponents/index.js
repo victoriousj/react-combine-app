@@ -1,6 +1,6 @@
 import styled, { keyframes } from "styled-components";
 
-import { randomUpTo } from "../../../helpers";
+import { helpers } from "../../../helpers";
 
 import { spaceBarrageSVGs } from "../../../assets";
 
@@ -57,13 +57,13 @@ export const EnemySC = styled.div`
   width: 80px;
   height: 80px;
   display: inline-block;
-  background: url(${() => enemies[randomUpTo(2)]}) center;
+  background: url(${() => enemies[helpers.randomUpTo(2)]}) center;
   background-size: cover;
   position: absolute;
   left: 0px;
   top: -100px;
   animation: ${() => moveY};
-  animation-duration: ${() => `${randomUpTo(8)}s`};
+  animation-duration: ${() => `${helpers.randomUpTo(8)}s`};
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 `;

@@ -1,6 +1,4 @@
 export default () => ({
-  fetchRandomButtonIndex: () => Math.floor(Math.random() * 4),
-
   delay: x => new Promise(r => setTimeout(r, x)),
 
   getNextColorScheme: state =>

@@ -4,14 +4,12 @@ import Screen from "./Screen";
 
 import { Provider } from "../../context";
 import { AppSC } from "./StyledComponents";
-import { tick, handleKeys, initialState } from "../../helpers";
-
-// import './App.css';
+import { spaceBarrageHelpers } from "../../helpers";
 
 export default class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = initialState();
+    this.state = spaceBarrageHelpers.initialState();
   }
 
   componentDidMount() {
@@ -24,9 +22,10 @@ export default class App extends React.Component {
     if (isShipHit) clearInterval(this.isPlaying);
   }
 
-  tick = () => this.setState(() => tick(this));
+  tick = () => this.setState(() => spaceBarrageHelpers.tick(this));
 
-  handleKeys = e => this.setState(() => handleKeys(this.state, e));
+  handleKeys = e =>
+    this.setState(() => spaceBarrageHelpers.handleKeys(this.state, e));
 
   render() {
     return (
