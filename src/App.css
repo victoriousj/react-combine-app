@@ -1,9 +1,16 @@
+@font-face {
+  font-family: "PressStart2P-Regular";
+  src: url(./assets/fonts/PressStart2P-Regular.ttf);
+}
+
 body {
   margin: 0;
   padding: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow: hidden;
+  user-select: none;
+  background-color: #34495e;
 }
 
 header {

@@ -17,6 +17,8 @@ export const AppSC = styled.div`
   position: relative;
   align-items: center;
   flex-direction: column;
+  // background-color: #111;
+  font-family: 'PressStart2P-Regular';
   `;
 
 export const ScreenSC = styled.div`
