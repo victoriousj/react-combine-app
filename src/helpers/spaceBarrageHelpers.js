@@ -1,6 +1,10 @@
 import React from 'react';
 
-import { SmStarSC, MdStarSC, LgStarSC } from '../components/SpaceBarrage/StyledComponents';
+import {
+  SmStarSC,
+  MdStarSC,
+  LgStarSC,
+} from '../components/SpaceBarrage/StyledComponents';
 import { KEYS } from '../resources';
 
 import { spaceBarrageSVGs } from '../assets';
@@ -30,9 +34,11 @@ export default () => ({
     const { rVelocity, lVelocity, shipX } = state;
     const key = e.keyCode;
 
-    if (key === KEYS.RIGHT || key === KEYS.D) state.rVelocity = rVelocity < 20 ? rVelocity + 2 : 20;
+    if (key === KEYS.RIGHT || key === KEYS.D)
+      state.rVelocity = rVelocity < 20 ? rVelocity + 2 : 20;
 
-    if (key === KEYS.LEFT || key === KEYS.A) state.lVelocity = lVelocity > -20 ? lVelocity - 2 : -20;
+    if (key === KEYS.LEFT || key === KEYS.A)
+      state.lVelocity = lVelocity > -20 ? lVelocity - 2 : -20;
 
     state.shipX = shipX + state.lVelocity + state.rVelocity;
 

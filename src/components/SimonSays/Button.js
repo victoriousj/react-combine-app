@@ -45,7 +45,11 @@ export default class Button extends Component {
     const overlayStyle = `overlay ${show ? 'on' : ''}`;
 
     return (
-      <div className={buttonStyle} onClick={this.registerButtonPress} style={{ backgroundColor: color }}>
+      <div
+        className={buttonStyle}
+        onClick={this.registerButtonPress}
+        style={{ backgroundColor: color }}
+      >
         <div className={overlayStyle} />
       </div>
     );

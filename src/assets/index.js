@@ -17,7 +17,14 @@ export const colorSchemes = [
   ['#2ecc71', '#9b59b6', '#fff', '#f0f'],
 ];
 
-export const sounds = [firstSound, secondSound, thirdSound, fourthSound, fithSound, sixthSound];
+export const sounds = [
+  firstSound,
+  secondSound,
+  thirdSound,
+  fourthSound,
+  fithSound,
+  sixthSound,
+];
 
 export const spaceBarrageSVGs = {
   enemy1,

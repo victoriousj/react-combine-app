@@ -17,7 +17,10 @@ const ControlButtons = props => (
         <div className="game-switch-toggle" />
       </CSSTransition>
     </div>
-    <div onClick={() => props.changeTheme()} className={`game-reset ${!props.isPlaying ? 'game-light-off' : ''}`} />
+    <div
+      onClick={() => props.changeTheme()}
+      className={`game-reset ${!props.isPlaying ? 'game-light-off' : ''}`}
+    />
   </div>
 );
 

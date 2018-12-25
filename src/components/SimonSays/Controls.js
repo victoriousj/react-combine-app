@@ -13,7 +13,11 @@ const Controls = props => (
 
     <div className="game-controls">
       <Score score={props.score} isPlaying={props.isPlaying} />
-      <ControlButtons isPlaying={props.isPlaying} startGame={props.startGame} changeTheme={props.changeTheme} />
+      <ControlButtons
+        isPlaying={props.isPlaying}
+        startGame={props.startGame}
+        changeTheme={props.changeTheme}
+      />
     </div>
   </div>
 );

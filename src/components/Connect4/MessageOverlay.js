@@ -20,7 +20,11 @@ const MessageOverlay = props => {
 
   return (
     <div className={`message-overlay`}>
-      <ReactCSSTransitionGroup transitionName="side-slide" transitionEnterTimeout={500} transitionLeaveTimeout={200}>
+      <ReactCSSTransitionGroup
+        transitionName="side-slide"
+        transitionEnterTimeout={500}
+        transitionLeaveTimeout={200}
+      >
         {overlay}
       </ReactCSSTransitionGroup>
     </div>

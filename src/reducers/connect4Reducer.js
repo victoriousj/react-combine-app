@@ -26,7 +26,8 @@ export default function connect4(state = initialState, action) {
 
       const newState = { ...state };
 
-      newState.gameBoard[action.columnIndex][action.rowIndex] = newState.currentPlayer;
+      newState.gameBoard[action.columnIndex][action.rowIndex] =
+        newState.currentPlayer;
 
       const winningPieces = connect4Helpers.checkGameBoard(state.gameBoard);
       if (winningPieces) {
@@ -63,7 +64,10 @@ export default function connect4(state = initialState, action) {
     case actionTypes.INC_TIMER: {
       if (!state.isPlaying) return state;
 
-      state = state.currentPlayer === 1 ? timePlayerOneTimer(state) : timePlayerTwoTimer(state);
+      state =
+        state.currentPlayer === 1
+          ? timePlayerOneTimer(state)
+          : timePlayerTwoTimer(state);
 
       return state;
     }

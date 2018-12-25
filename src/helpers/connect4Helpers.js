@@ -8,7 +8,12 @@ export default () => ({
       for (let cellIndex = 0; cellIndex <= 2; cellIndex++) {
         if (column[cellIndex] === 0) continue;
 
-        const verticalGroup = [column[cellIndex], column[cellIndex + 1], column[cellIndex + 2], column[cellIndex + 3]];
+        const verticalGroup = [
+          column[cellIndex],
+          column[cellIndex + 1],
+          column[cellIndex + 2],
+          column[cellIndex + 3],
+        ];
 
         if (areIdentical(verticalGroup)) {
           winningPeices = [
@@ -49,7 +54,11 @@ export default () => ({
 
     // diagonal, up-to-the-right
     for (let diagonalYIndex = 0; diagonalYIndex <= 3; diagonalYIndex++) {
-      for (let diagonalGroupXIndex = 0; diagonalGroupXIndex <= 2; diagonalGroupXIndex++) {
+      for (
+        let diagonalGroupXIndex = 0;
+        diagonalGroupXIndex <= 2;
+        diagonalGroupXIndex++
+      ) {
         if (gameBoard[diagonalYIndex][diagonalGroupXIndex] === 0) continue;
 
         const diagonalGroup = [
@@ -73,7 +82,11 @@ export default () => ({
 
     // diagonal down-to-the-right
     for (let diagonalYIndex = 0; diagonalYIndex <= 3; diagonalYIndex++) {
-      for (let diagonalGroupXIndex = 6; diagonalGroupXIndex >= 0; diagonalGroupXIndex--) {
+      for (
+        let diagonalGroupXIndex = 6;
+        diagonalGroupXIndex >= 0;
+        diagonalGroupXIndex--
+      ) {
         if (gameBoard[diagonalYIndex][diagonalGroupXIndex] === 0) continue;
 
         const diagonalGroup = [

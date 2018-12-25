@@ -53,7 +53,11 @@ class Connect4 extends React.Component {
     return (
       <div>
         {showOverlay && (
-          <MessageOverlay showOverlay={showOverlay} resetGame={resetGame} winningPlayer={currentPlayer} />
+          <MessageOverlay
+            showOverlay={showOverlay}
+            resetGame={resetGame}
+            winningPlayer={currentPlayer}
+          />
         )}
         <div className="playclocks">
           <PlayClock player={1} time={playerOneTime} />

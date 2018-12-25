@@ -28,7 +28,10 @@ export default function Control(state = initialState, action) {
     }
 
     case actionTypes.GAME_START: {
-      const playbackSequence = [...state.playbackSequence, helpers.randomUpTo(4)];
+      const playbackSequence = [
+        ...state.playbackSequence,
+        helpers.randomUpTo(4),
+      ];
 
       if (state.isPlaying) {
         return Control(state, { type: actionTypes.GAME_END });
@@ -56,7 +59,10 @@ export default function Control(state = initialState, action) {
     }
 
     case actionTypes.BUTTON_PRESS: {
-      const newPlayerPlaybackSequence = [...state.playerPlaybackSequence, action.buttonIndex];
+      const newPlayerPlaybackSequence = [
+        ...state.playerPlaybackSequence,
+        action.buttonIndex,
+      ];
 
       // Start at the end of the array and work back
       for (let i = newPlayerPlaybackSequence.length; i--; ) {
@@ -90,7 +96,10 @@ export default function Control(state = initialState, action) {
     }
 
     case actionTypes.ADD_TO_PLAYBACK_SEQUENCE: {
-      const newPlaybackSequence = [...state.playbackSequence, helpers.randomUpTo(4)];
+      const newPlaybackSequence = [
+        ...state.playbackSequence,
+        helpers.randomUpTo(4),
+      ];
 
       return {
         ...state,
