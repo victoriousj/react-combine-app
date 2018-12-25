@@ -15,6 +15,9 @@ const Header = () => (
       <li className="nav-links">
         <NavLink to="/connect4">Connect4</NavLink>
       </li>
+      <li className="nav-links">
+        <NavLink to="/spacebarrage">Space Barrage</NavLink>
+      </li>
     </ul>
   </header>
 );

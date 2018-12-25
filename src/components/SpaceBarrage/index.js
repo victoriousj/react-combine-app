@@ -1,12 +1,12 @@
-import React from 'react';
+import React from "react";
 
-import Screen from './Components/Screen';
+import Screen from "./Screen";
 
-import { Provider } from './Context';
-import { AppSC } from './Components/StyledComponents';
-import { tick, handleKeys, initialState } from './Helpers';
+import { Provider } from "../../context";
+import { AppSC } from "./StyledComponents";
+import { tick, handleKeys, initialState } from "../../helpers";
 
-import './App.css';
+// import './App.css';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -16,8 +16,8 @@ export default class App extends React.Component {
 
   componentDidMount() {
     this.isPlaying = setInterval(this.tick, 50);
-    this.enemies = document.querySelectorAll('.Enemy');
-    window.addEventListener('keydown', this.handleKeys);
+    this.enemies = document.querySelectorAll(".Enemy");
+    window.addEventListener("keydown", this.handleKeys);
   }
 
   componentDidUpdate(a, { isShipHit }) {

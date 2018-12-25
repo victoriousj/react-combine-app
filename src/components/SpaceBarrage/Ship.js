@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 
-import { ShipSC, ShipContainerSC, FireSC } from './StyledComponents';
-import { withContext } from '../Context';
+import { ShipSC, ShipContainerSC, FireSC } from "./StyledComponents";
+import { withContext } from "../../context";
 
 export default withContext(
   React.memo(props => {
@@ -14,5 +14,5 @@ export default withContext(
         <FireSC />
       </ShipContainerSC>
     );
-  }),
+  })
 );

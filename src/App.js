@@ -9,6 +9,7 @@ import * as actions from "./actions";
 import Header from "./components/Header";
 import Connect4 from "./components/Connect4";
 import SimonSays from "./components/SimonSays";
+import SpaceBarrage from "./components/SpaceBarrage";
 
 class App extends React.Component {
   constructor(props) {
@@ -60,6 +61,7 @@ class App extends React.Component {
                   />
                 )}
               />
+              <Route path={"/spacebarrage"} render={() => <SpaceBarrage />} />
             </Switch>
           </>
         </BrowserRouter>
