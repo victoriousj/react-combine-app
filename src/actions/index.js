@@ -13,12 +13,12 @@ export const addToPlaybackSequence = () => ({
   type: actionTypes.ADD_TO_PLAYBACK_SEQUENCE,
 });
 
-export const buttonPress = buttonIndex => ({
+export const buttonPress = (buttonIndex) => ({
   type: actionTypes.BUTTON_PRESS,
   buttonIndex,
 });
 
-export const changeTheme = colorSchemeId => ({
+export const changeTheme = (colorSchemeId) => ({
   type: actionTypes.GAME_CHANGE_THEME,
   colorSchemeId,
 });

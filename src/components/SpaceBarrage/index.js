@@ -24,7 +24,7 @@ export default class App extends React.Component {
 
   tick = () => this.setState(() => spaceBarrageHelpers.tick(this));
 
-  handleKeys = e =>
+  handleKeys = (e) =>
     this.setState(() => spaceBarrageHelpers.handleKeys(this.state, e));
 
   render() {

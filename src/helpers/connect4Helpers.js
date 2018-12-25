@@ -1,5 +1,5 @@
 export default () => ({
-  checkGameBoard: gameBoard => {
+  checkGameBoard: (gameBoard) => {
     let winningPeices = [];
     // vertical
     for (let columnIndex = 0; columnIndex <= 6; columnIndex++) {
@@ -111,4 +111,4 @@ export default () => ({
   },
 });
 
-const areIdentical = arr => arr.every(v => v === arr[0]);
+const areIdentical = (arr) => arr.every((v) => v === arr[0]);

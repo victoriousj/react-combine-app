@@ -19,7 +19,7 @@ const minX = -40;
 
 export default () => ({
   // Runs every 50ms in order to assess and adjust state
-  tick: App => {
+  tick: (App) => {
     const enemies = App.enemies;
     let state = App.state;
 
@@ -51,7 +51,7 @@ export default () => ({
 
   // Creates 'n' star elements with animation
   // Returns array of stars
-  addStars: n => {
+  addStars: (n) => {
     const rX = () => helpers.randomUpTo(maxX);
     const rDelay = () => 0 - helpers.randomUpTo(4800);
 
@@ -69,7 +69,7 @@ export default () => ({
 
   // Creates 'n' amount of enemies for the game
   // Returns an array of Enemy components
-  addEnemies: n => [...Array(n).keys()].map(i => <Enemy key={i} />),
+  addEnemies: (n) => [...Array(n).keys()].map((i) => <Enemy key={i} />),
 
   initialState: () => ({
     score: 0,
@@ -81,7 +81,7 @@ export default () => ({
 });
 
 // Randomly re-creates and places an enemy at the top
-const resetEnemy = enemy => {
+const resetEnemy = (enemy) => {
   enemy.style.webkitAnimation = 'none';
   enemy.style.animation = 'none';
   enemy.style.animationDuration = `0s`;
@@ -103,7 +103,7 @@ const resetEnemy = enemy => {
 const updateEnemies = (enemies, state) => {
   const shipX = document.querySelector('.Ship').getBoundingClientRect().x;
 
-  enemies.forEach(enemy => {
+  enemies.forEach((enemy) => {
     const enemyDim = enemy.getBoundingClientRect();
     const { y, x } = enemyDim;
 
@@ -121,7 +121,7 @@ const updateEnemies = (enemies, state) => {
 };
 
 // Lower the inertia of a moving ship
-const decayVelocity = state => {
+const decayVelocity = (state) => {
   const { rVelocity, lVelocity, shipX } = state;
   const velocity = lVelocity + rVelocity;
 

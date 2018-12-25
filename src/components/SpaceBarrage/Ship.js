@@ -4,7 +4,7 @@ import { ShipSC, ShipContainerSC, FireSC } from './StyledComponents';
 import { withContext } from '../../context';
 
 export default withContext(
-  React.memo(props => {
+  React.memo((props) => {
     const { shipX, rVelocity, lVelocity } = props.context;
     const rotate = (rVelocity + lVelocity) * 2.5;
 

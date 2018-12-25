@@ -2,7 +2,7 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-const Cell = props => {
+const Cell = (props) => {
   const { cellValue, winningPiece, isFirstFreeCell, currentPlayer } = props;
 
   const cellStyle = `

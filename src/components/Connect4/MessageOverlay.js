@@ -2,7 +2,7 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-const MessageOverlay = props => {
+const MessageOverlay = (props) => {
   const { winningPlayer, resetGame } = props;
 
   const overlay = (

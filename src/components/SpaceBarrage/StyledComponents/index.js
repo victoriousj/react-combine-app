@@ -75,7 +75,7 @@ export const ShipContainerSC = styled.div`
   bottom: 80px;
   position: absolute;
   transform: translate(-50%, 0%);
-  transform: rotate(${props => props.rotate}deg);
+  transform: rotate(${(props) => props.rotate}deg);
 `;
 
 export const ShipSC = styled.div`
@@ -101,8 +101,9 @@ const StarSC = styled.div`
   z-index: -1;
   position: absolute;
   background-color: Cyan;
-  left: ${props => props.x}px;
-  animation: ${() => moveY} ${props => props.sp}s linear ${props => `${props.delay}ms`} infinite normal;
+  left: ${(props) => props.x}px;
+  animation: ${() => moveY} ${(props) => props.sp}s linear
+    ${(props) => `${props.delay}ms`} infinite normal;
 `;
 
 export const SmStarSC = styled(StarSC)`
