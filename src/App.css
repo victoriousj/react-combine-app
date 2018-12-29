@@ -1,5 +1,5 @@
 @font-face {
-  font-family: "PressStart2P-Regular";
+  font-family: 'PressStart2P-Regular';
   src: url(./assets/fonts/PressStart2P-Regular.ttf);
 }
 
@@ -10,48 +10,53 @@ body {
   -moz-osx-font-smoothing: grayscale;
   overflow: hidden;
   user-select: none;
-  background-color: #34495e;
-}
-
-header {
-  background: #343a40;
-  height: 5vh;
+  background-color: #2980b9;
 }
 
 .navbar {
   display: flex;
-  justify-content: space-between;
-}
-
-.main-nav {
+  justify-content: space-around;
+  width: 80%;
+  margin: 0 auto;
   list-style-type: none;
   display: flex;
   flex-wrap: wrap;
-  margin: 0;
+  margin: auto;
 }
 
-.logo {
-  background-image: url("./assets/images/code.png");
-}
-
-.main-nav a,
-.navbar span {
-  padding: 0.75vh 1vh;
-}
-
-.main-nav a {
+.navbar a {
   font-size: 1.5vh;
-  color: rgb(255, 255, 255, 0.5);
+  padding: 1.5vh 1vh;
+  color: #f1c40f;
   text-align: center;
   text-transform: uppercase;
+  text-decoration: none;
   display: block;
   transition: 0.2s;
+  font-weight: 400;
   border: 3px solid transparent;
   border-radius: 0.25vh;
-  margin: 0.5vh 0.5vh;
+  margin: 4vh 0.5vh 0vh;
+  letter-spacing: 0.3vh;
 }
-.main-nav a:hover,
-.main-nav .active {
-  color: #fff;
-  background: #28a745;
+
+.name {
+  font-size: 2.5vh;
+  padding: 1.5vh 1vh;
+  color: #ecf0f1;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: block;
+  transition: 0.2s;
+  font-weight: 400;
+  border: 3px solid transparent;
+  border-radius: 0.25vh;
+  margin: 4vh 0.5vh;
+  letter-spacing: 0.3vh;
+}
+
+.navbar a:hover,
+.navbar .active {
+  color: #ecf0f1;
 }

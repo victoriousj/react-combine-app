@@ -2,13 +2,20 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 const Header = () => (
-  <header className="navbar">
-    <span className="logo">
-      <NavLink exact to="/">
-        <i className="logo" />
-      </NavLink>
-    </span>
-    <ul className="main-nav">
+  <header>
+    <ul className="navbar">
+      <li className="nav-links">
+        <NavLink exact={true} to="/">
+          Home
+        </NavLink>
+      </li>
+      <li className="nav-links">
+        <NavLink to="about">about</NavLink>
+      </li>
+      <li className="nav-links">
+        <NavLink to="about">Resume</NavLink>
+      </li>
+      <li className="name">Victor Johnson</li>
       <li className="nav-links">
         <NavLink to="/simonsays">Simon Says</NavLink>
       </li>

@@ -19,7 +19,7 @@ const initialState = {
   ],
 };
 
-export default function connect4(state = initialState, action) {
+export default (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.ADD_PIECE: {
       if (!state.isPlaying) return state;
@@ -76,7 +76,7 @@ export default function connect4(state = initialState, action) {
       return state;
     }
   }
-}
+};
 
 const timePlayerOneTimer = (state) => ({
   ...state,

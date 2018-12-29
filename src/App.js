@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.css';
 
 import * as actions from './actions';
+import Index from './components/Index';
 import Header from './components/Header';
 import Connect4 from './components/Connect4';
 import SimonSays from './components/SimonSays';
@@ -37,6 +38,7 @@ class App extends React.Component {
           <>
             <Header />
             <Switch>
+              <Route exact path={'/'} render={() => <Index />} />
               <Route
                 path={'/simonsays'}
                 render={() => (
