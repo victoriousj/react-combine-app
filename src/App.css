@@ -59,4 +59,5 @@ body {
 .navbar a:hover,
 .navbar .active {
   color: #ecf0f1;
+  transform: scale(1.1);
 }

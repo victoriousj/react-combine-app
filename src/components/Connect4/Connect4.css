@@ -196,7 +196,7 @@
   display: hidden;
   position: absolute;
   transition: opacity 600ms;
-  background-color: #7f8c8d;
+  background-color: #65b9c8;
 }
 .column:hover::after {
   opacity: 1;
@@ -211,7 +211,7 @@
 }
 .column:hover .cell.black.glow::before {
   opacity: 1;
-  background-color: #76cad9;
+  background-color: #677c8f;
 }
 
 .player-piece {
@@ -228,7 +228,7 @@
   background-color: #f44336;
 }
 .player-piece.black {
-  background-color: #3498db;
+  background-color: #34495e;
 }
 .player-piece.winning-piece {
   background-color: white;
