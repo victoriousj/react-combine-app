@@ -12,6 +12,8 @@ import Connect4 from './components/Connect4';
 import SimonSays from './components/SimonSays';
 import SpaceBarrage from './components/SpaceBarrage';
 
+import firethief from './assets/images/firethief.svg';
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -67,6 +69,7 @@ class App extends React.Component {
             </Switch>
           </>
         </BrowserRouter>
+        <img src={firethief} alt="asdf" />
       </div>
     );
   }
