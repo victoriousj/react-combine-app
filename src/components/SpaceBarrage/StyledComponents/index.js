@@ -9,15 +9,17 @@ const enemies = [enemy1, enemy2, enemy3];
 
 export const AppSC = styled.div`
   height: 100%
-  width: 100%;
+  width: 1080px;
   color: lime;
-  margin: 50px 0px;
+  margin: 0px 0px;
   display: flex;
   filter: blur(1px);
   position: relative;
   align-items: center;
+  background: rgba(2, 5, 0, 1);
   flex-direction: column;
-  // background-color: #111;
+  border-radius: 25px 25px 25px 25px;
+  border: 5px solid #aaa;
   font-family: 'PressStart2P-Regular';
   `;
 
@@ -26,8 +28,7 @@ export const ScreenSC = styled.div`
   height: 800px;
   overflow: hidden;
   text-align: center;
-  border: 5px solid SlateGray;
-  background: rgba(124, 252, 0, 0.02);
+  border: 10px solid #aaa;
   border-radius: 25px 25px 25px 25px;
   animation: ${() => linkShudder} 3s linear infinite;
 `;
@@ -158,8 +159,8 @@ export const ScoreSC = styled.div`
 // Stars and Enemies will use this to go from end to end
 // of the Container
 const moveY = keyframes`
-  0%    { transform: translateY(-100px);  }
-  100%  { transform: translateY(950px);   }
+  0%    { transform: translateY(0px);  }
+  100%  { transform: translateY(1050px);   }
 `;
 
 // A flicker effect for the rocket's flame

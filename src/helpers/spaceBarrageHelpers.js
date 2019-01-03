@@ -109,11 +109,11 @@ const updateEnemies = (enemies, state) => {
 
     if (y > 625 && y < 775) {
       if (x >= shipX - 60 && x <= shipX + 60) {
-        state.isShipHit = true;
+        // state.isShipHit = true;
       }
     }
 
-    if (y >= 825) {
+    if (y >= 975) {
       resetEnemy(enemy);
       state.score = state.score + 1;
     }
