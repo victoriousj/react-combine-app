@@ -4,7 +4,7 @@ import React from 'react';
 import Score from './Score';
 import ControlButtons from './ControlButtons';
 
-const Controls = (props) => (
+const Controls = props => (
   <div className="controls">
     <div className="game-name">
       <span className="name">simon</span>

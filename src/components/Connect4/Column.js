@@ -3,7 +3,7 @@ import React from 'react';
 
 import Cell from './Cell';
 
-const Column = (props) => {
+const Column = props => {
   const {
     addPiece,
     isPlaying,
@@ -14,19 +14,19 @@ const Column = (props) => {
   } = props;
 
   let firstFreeCell =
-    [...columnValues].findIndex((cellValue) => cellValue !== 0) - 1;
+    [...columnValues].findIndex(cellValue => cellValue !== 0) - 1;
   // Initial value with no selected cells will be -2
   firstFreeCell = firstFreeCell === -2 ? 5 : firstFreeCell;
 
   const hasWinningPieces =
     winningPieces.length > 0 &&
-    winningPieces.some((winningPeice) => winningPeice.column === columnIndex);
+    winningPieces.some(winningPeice => winningPeice.column === columnIndex);
 
   const cells = columnValues.map((cellValue, i) => {
     const isFirstFreeCell = isPlaying && i === firstFreeCell;
     const isWinningPiece =
       hasWinningPieces &&
-      winningPieces.some((x) => x.row === i && x.column === columnIndex);
+      winningPieces.some(x => x.row === i && x.column === columnIndex);
 
     return (
       <Cell

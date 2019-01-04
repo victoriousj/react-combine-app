@@ -78,12 +78,12 @@ export default (state = initialState, action) => {
   }
 };
 
-const timePlayerOneTimer = (state) => ({
+const timePlayerOneTimer = state => ({
   ...state,
   playerOneTime: 1 + state.playerOneTime,
 });
 
-const timePlayerTwoTimer = (state) => ({
+const timePlayerTwoTimer = state => ({
   ...state,
   playerTwoTime: 1 + state.playerTwoTime,
 });

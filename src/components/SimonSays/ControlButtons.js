@@ -9,7 +9,7 @@ const transitionStyles = {
   activeStyle: { transform: 'translate(52.5%)' },
 };
 
-const ControlButtons = (props) => (
+const ControlButtons = props => (
   <div className="control-buttons">
     <div className={`game-light ${props.isPlaying ? 'game-light-on' : ''}`} />
     <div onClick={() => props.startGame()} className="game-switch">

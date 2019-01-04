@@ -71,7 +71,7 @@ class App extends React.Component {
     );
   }
 }
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   const { connect4, simonSays } = state;
   return {
     connect4,

@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-const Container = (props) => (
+const Container = props => (
   <div className="connect-container">
     <div className="container-top" />
     <div className="container-body">{props.Columns}</div>

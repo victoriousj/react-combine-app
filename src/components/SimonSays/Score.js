@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Score = (props) => (
+const Score = props => (
   <div className="game-score">
     <span className={props.isPlaying ? 'game-light-on' : 'game-light-off'}>
       {props.score}

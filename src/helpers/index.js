@@ -7,5 +7,5 @@ export const simonSaysHelpers = simonSays();
 export const connect4Helpers = connect4();
 
 export const helpers = {
-  randomUpTo: (upperLimit) => Math.floor(Math.random() * upperLimit),
+  randomUpTo: upperLimit => Math.floor(Math.random() * upperLimit),
 };
