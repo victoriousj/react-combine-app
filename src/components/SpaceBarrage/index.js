@@ -13,6 +13,7 @@ export default class App extends React.Component {
   }
 
   componentDidMount() {
+    document.body.style.backgroundColor = 'rgb(40, 44, 52)';
     this.isPlaying = setInterval(this.tick, 50);
     this.enemies = document.querySelectorAll('.Enemy');
     window.addEventListener('keydown', this.handleKeys);

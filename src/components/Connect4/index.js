@@ -18,7 +18,12 @@ class Connect4 extends React.Component {
   };
 
   componentDidMount() {
+    document.body.style.backgroundColor = 'rgb(7, 152, 236)';
     this.timer = setInterval(this.props.incTimer, 1000);
+  }
+
+  componentWillUnmount() {
+    document.body.style.backgroundColor = '';
   }
 
   componentWillUnmount() {

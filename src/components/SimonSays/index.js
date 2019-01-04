@@ -19,6 +19,14 @@ class Container extends Component {
     playerPlaybackSequence: PropTypes.array.isRequired,
   };
 
+  componentDidMount() {
+    document.body.style.backgroundColor = 'rgb(255, 95, 69)';
+  }
+
+  componentWillUnmount() {
+    document.body.style.backgroundColor = '';
+  }
+
   componentDidUpdate(prevState) {
     if (
       this.props.playbackSequence.length !== prevState.playbackSequence.length

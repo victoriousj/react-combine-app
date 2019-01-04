@@ -8,5 +8,5 @@ body {
   -moz-osx-font-smoothing: grayscale;
   overflow: hidden;
   user-select: none;
-  background-color: #2980b9;
+  background-color: rgb(7, 152, 236);
 }

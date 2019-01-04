@@ -76,7 +76,7 @@ export const ShipContainerSC = styled.div`
   bottom: 80px;
   position: absolute;
   transform: translate(-50%, 0%);
-  transform: rotate(${(props) => props.rotate}deg);
+  transform: rotate(${props => props.rotate}deg);
 `;
 
 export const ShipSC = styled.div`
@@ -102,9 +102,9 @@ const StarSC = styled.div`
   z-index: -1;
   position: absolute;
   background-color: Cyan;
-  left: ${(props) => props.x}px;
-  animation: ${() => moveY} ${(props) => props.sp}s linear
-    ${(props) => `${props.delay}ms`} infinite normal;
+  left: ${props => props.x}px;
+  animation: ${() => moveY} ${props => props.sp}s linear
+    ${props => `${props.delay}ms`} infinite normal;
 `;
 
 export const SmStarSC = styled(StarSC)`
@@ -171,17 +171,17 @@ const flame = keyframes`
 
 // The whole screen has this attached. To replicate a CRT TV screen
 const linkShudder = keyframes`
-  10%  {                                        filter:blur(0.5px); }
-  15%  {                                        filter:blur(1px);   }
-  20%  {                                        filter:blur(0.5px); }
-  27%  { transform: translate(0px,0px);                             }
-  28%  { transform: translate(1px,0px);                             }
-  29%  { transform: translate(0px,0px);                             }
-  35%  { transform: translate(0px,0px);                             }
-  36%  { transform: translate(.5px,.5px);                           }
-  37%  { transform: translate(0px,0px);                             }
-  42%  { transform: translate(0px,0px);         filter:blur(0.5px); }
-  43%  { transform: translate(0px,0.5px);       filter:blur(1px);   }
-  44%  { transform: translate(0px,0px);         filter:blur(0.5px); }
+  // 10%  {                                        filter:blur(0.5px); }
+  // 15%  {                                        filter:blur(1px);   }
+  // 20%  {                                        filter:blur(0.5px); }
+  // 27%  { transform: translate(0px,0px);                             }
+  // 28%  { transform: translate(1px,0px);                             }
+  // 29%  { transform: translate(0px,0px);                             }
+  // 35%  { transform: translate(0px,0px);                             }
+  // 36%  { transform: translate(.5px,.5px);                           }
+  // 37%  { transform: translate(0px,0px);                             }
+  // 42%  { transform: translate(0px,0px);         filter:blur(0.5px); }
+  // 43%  { transform: translate(0px,0.5px);       filter:blur(1px);   }
+  // 44%  { transform: translate(0px,0px);         filter:blur(0.5px); }
   100% { transform: translate(0px,0px);                             }
 `;
