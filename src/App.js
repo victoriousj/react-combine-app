@@ -19,7 +19,6 @@ class App extends React.Component {
     const { dispatch } = props;
     this.dispatch = dispatch;
 
-    this.incTimer = bindActionCreators(actions.incTimer, dispatch);
     this.addPiece = bindActionCreators(actions.addPiece, dispatch);
     this.resetGame = bindActionCreators(actions.resetGame, dispatch);
 
@@ -58,7 +57,6 @@ class App extends React.Component {
                   <Connect4
                     {...connect4}
                     addPiece={this.addPiece}
-                    incTimer={this.incTimer}
                     resetGame={this.resetGame}
                   />
                 )}

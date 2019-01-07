@@ -4,8 +4,6 @@ import { connect4Helpers } from '../helpers';
 const initialState = {
   isPlaying: true,
   currentPlayer: 1,
-  playerOneTime: 0,
-  playerTwoTime: 0,
   winningPieces: [],
   showOverlay: false,
   gameBoard: [
@@ -61,29 +59,8 @@ export default (state = initialState, action) => {
       };
     }
 
-    case actionTypes.INC_TIMER: {
-      if (!state.isPlaying) return state;
-
-      state =
-        state.currentPlayer === 1
-          ? timePlayerOneTimer(state)
-          : timePlayerTwoTimer(state);
-
-      return state;
-    }
-
     default: {
       return state;
     }
   }
 };
-
-const timePlayerOneTimer = state => ({
-  ...state,
-  playerOneTime: 1 + state.playerOneTime,
-});
-
-const timePlayerTwoTimer = state => ({
-  ...state,
-  playerTwoTime: 1 + state.playerTwoTime,
-});

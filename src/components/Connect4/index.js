@@ -5,7 +5,6 @@ import './Connect4.css';
 
 import Column from './Column';
 import Container from './Container';
-import PlayClock from './PlayClock';
 import MessageOverlay from './MessageOverlay';
 
 class Connect4 extends React.Component {
@@ -19,15 +18,10 @@ class Connect4 extends React.Component {
 
   componentDidMount() {
     document.body.style.backgroundColor = 'rgb(7, 152, 236)';
-    this.timer = setInterval(this.props.incTimer, 1000);
   }
 
   componentWillUnmount() {
     document.body.style.backgroundColor = '';
-  }
-
-  componentWillUnmount() {
-    clearInterval(this.timer);
   }
 
   render() {
@@ -39,8 +33,6 @@ class Connect4 extends React.Component {
       currentPlayer,
       winningPieces,
       showOverlay,
-      playerOneTime,
-      playerTwoTime,
     } = props;
 
     const columns = props.gameBoard.map((columnValues, index) => (
@@ -64,10 +56,6 @@ class Connect4 extends React.Component {
             winningPlayer={currentPlayer}
           />
         )}
-        <div className="playclocks">
-          <PlayClock player={1} time={playerOneTime} />
-          <PlayClock player={2} time={playerTwoTime} />
-        </div>
         <Container resetGame={resetGame} Columns={columns} />
       </div>
     );

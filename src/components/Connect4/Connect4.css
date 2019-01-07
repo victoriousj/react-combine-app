@@ -234,33 +234,6 @@
   background-color: white;
 }
 
-.playclocks {
-  width: 50%;
-  display: flex;
-  margin: 3vh auto;
-  text-align: center;
-  justify-content: space-around;
-}
-.playclock {
-  width: 20vh;
-  color: white;
-  border-radius: 1vh;
-  display: inline-block;
-  padding: 15px 10px 5px 10px;
-  margin: -5px -10px -5px 10px;
-  background: rgba(52, 73, 94, 0.2);
-}
-.playclock-time {
-  font-size: 2em;
-  font-family: monospace;
-}
-.playclock h2 {
-  margin: 0;
-  font-size: 0.6em;
-  font-weight: normal;
-  letter-spacing: 2px;
-}
-
 .slide-enter {
   transform: translateY(-50vh);
 }
