@@ -1,6 +1,6 @@
 import React from 'react';
 
-import firethief from '../assets/images/firethief.svg';
+import GameCard from './GameCard';
 
 class Index extends React.Component {
   componentDidMount() {
@@ -12,11 +12,7 @@ class Index extends React.Component {
   }
 
   render() {
-    return (
-      <div>
-        <img src={firethief} alt="asdf" />
-      </div>
-    );
+    return <GameCard />;
   }
 }
 

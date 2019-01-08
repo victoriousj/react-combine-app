@@ -48,16 +48,18 @@ class Connect4 extends React.Component {
     ));
 
     return (
-      <div>
-        {showOverlay && (
-          <MessageOverlay
-            showOverlay={showOverlay}
-            resetGame={resetGame}
-            winningPlayer={currentPlayer}
-          />
-        )}
-        <Container resetGame={resetGame} Columns={columns} />
-      </div>
+      <>
+        <div className="game-container">
+          {showOverlay && (
+            <MessageOverlay
+              showOverlay={showOverlay}
+              resetGame={resetGame}
+              winningPlayer={currentPlayer}
+            />
+          )}
+          <Container resetGame={resetGame} Columns={columns} />
+        </div>
+      </>
     );
   }
 }

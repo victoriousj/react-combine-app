@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
 
 import './index.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import reducer from './reducers';
 import App from './App';
