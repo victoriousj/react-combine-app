@@ -107,9 +107,9 @@ const updateEnemies = (enemies, state) => {
     const enemyDim = enemy.getBoundingClientRect();
     const { y, x } = enemyDim;
 
-    if (y > 625 && y < 775) {
+    if (y > 725 && y < 875) {
       if (x >= shipX - 60 && x <= shipX + 60) {
-        // state.isShipHit = true;
+        state.isShipHit = true;
       }
     }
 

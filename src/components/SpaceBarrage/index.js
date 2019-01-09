@@ -19,7 +19,7 @@ export default class App extends React.Component {
     window.addEventListener('keydown', this.handleKeys);
   }
 
-  componentDidUpdate(a, { isShipHit }) {
+  componentDidUpdate(p, { isShipHit }) {
     if (isShipHit) clearInterval(this.isPlaying);
   }
 
