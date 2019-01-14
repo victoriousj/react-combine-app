@@ -1,3 +1,0 @@
-This project will try to connect two, maybe three separate React apps into one, unsing React Router to render the particular apps when the user requests it. Each app will have it's own Redux store, assests, and helper functions. This may extend into using code-splitting, if that seems like a good idea when we get there.
-
-This was made using React-Create-App, because, well, why not. It will use React, Redux. Webpack, Babel. ES6 features, maybe Styled-Components, React Router, as well as various loaders to deal with files of differing extensions and other helper libraries that Create-React-App uses behind the scenes.
